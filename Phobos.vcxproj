@@ -149,6 +149,7 @@
     <!-- src\Ext\Sidebar -->
     <ClCompile Include="src\Ext\Sidebar\Body.cpp" />
     <ClCompile Include="src\Ext\Sidebar\Hooks.cpp" />
+    <ClCompile Include="src\Ext\Sidebar\PerBuildingProduction.cpp" />
     <ClCompile Include="src\Ext\Sidebar\SWSidebar\SWButtonClass.cpp" />
     <ClCompile Include="src\Ext\Sidebar\SWSidebar\SWColumnClass.cpp" />
     <ClCompile Include="src\Ext\Sidebar\SWSidebar\SWSidebarClass.cpp" />
@@ -379,6 +380,7 @@
     <ClInclude Include="src\Ext\Script\Body.h" />
     <ClInclude Include="src\Ext\Side\Body.h" />
     <ClInclude Include="src\Ext\Sidebar\Body.h" />
+    <ClInclude Include="src\Ext\Sidebar\PerBuildingProduction.h" />
     <ClInclude Include="src\Ext\Sidebar\SWSidebar\SWButtonClass.h" />
     <ClInclude Include="src\Ext\Sidebar\SWSidebar\SWColumnClass.h" />
     <ClInclude Include="src\Ext\Sidebar\SWSidebar\SWSidebarClass.h" />

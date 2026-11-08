@@ -227,6 +227,7 @@ public:
 		Valueable<bool> ShowGameTime;
 		Valueable<bool> IsVoiceCreatedGlobal;
 		Valueable<bool> SetTabBySelectingFactory;
+		Valueable<bool> PerBuildingProduction;
 		Valueable<int> SelectionFlashDuration;
 		Valueable<int> SetRecruitableOnLiberate;
 		Nullable<AnimTypeClass*> DropPodTrailer;
@@ -749,6 +750,8 @@ public:
 			, DrawTurretShadow { false }
 			, IsVoiceCreatedGlobal { false }
 			, SetTabBySelectingFactory { false }
+			// Experimental mod: on by default. Set [General] PerBuildingProduction=no to get vanilla behaviour back.
+			, PerBuildingProduction { true }
 			, SelectionFlashDuration { 0 }
 			, SetRecruitableOnLiberate { -1 }
 			, DrawInsignia_OnlyOnSelected { false }

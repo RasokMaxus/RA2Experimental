@@ -4,6 +4,7 @@
 #include <WWMouseClass.h>
 
 #include <Ext/Side/Body.h>
+#include <Ext/Sidebar/PerBuildingProduction.h>
 
 MessageColumnClass MessageColumnClass::Instance;
 
@@ -1071,6 +1072,9 @@ DEFINE_HOOK(0x4F4589, GScreenClass_NewMessageListDraw, 0x5)
 DEFINE_HOOK(0x55DDA0, MainLoop_FrameStep_NewMessageListManage, 0x5)
 {
 	enum { SkipGameCode = 0x55DDAA };
+
+	// Per-building production: react to the player selecting another factory.
+	PerBuildingProduction::Update();
 
 	if(ScenarioClass::Instance->UserInputLocked && MessageColumnClass::Instance.IsExpanded())
 		MessageColumnClass::Instance.PackUp();

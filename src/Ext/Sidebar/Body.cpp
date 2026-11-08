@@ -1,5 +1,6 @@
 #include "Body.h"
 #include "SWSidebar/SWSidebarClass.h"
+#include "PerBuildingProduction.h"
 
 #include <EventClass.h>
 
@@ -23,6 +24,11 @@ bool __stdcall SidebarExt::AresTabCameo_RemoveCameo(BuildType* pItem)
 {
 	const auto pTechnoType = TechnoTypeClass::GetByTypeAndIndex(pItem->ItemType, pItem->ItemIndex);
 	const auto pCurrent = HouseClass::CurrentPlayer;
+
+	// Per-building production: the cameo belongs to a building that isn't selected.
+	// Remove it silently - no abandon events, the production itself keeps going.
+	if (pTechnoType && PerBuildingProduction::IsEnabled() && !PerBuildingProduction::IsCameoVisible(pTechnoType))
+		return true;
 
 	if (pTechnoType)
 	{

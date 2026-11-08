@@ -1,6 +1,7 @@
 #include "SWSidebarClass.h"
 
 #include <Ext/House/Body.h>
+#include <Ext/Sidebar/PerBuildingProduction.h>
 
 SWSidebarClass SWSidebarClass::Instance;
 CommandClass* SWSidebarClass::Commands[10];
@@ -318,11 +319,22 @@ DEFINE_HOOK(0x6A6316, SidebarClass_AddCameo_SuperWeapon_SWSidebar, 0x6)
 	enum { ReturnFalse = 0x6A65FF };
 
 	GET_STACK(AbstractType, whatAmI, STACK_OFFSET(0x14, 0x4));
+	GET_STACK(const int, index, STACK_OFFSET(0x14, 0x8));
+
+	// Per-building production: only the selected production building's items get a cameo.
+	if (PerBuildingProduction::IsEnabled())
+	{
+		if (const auto pTechnoType = TechnoTypeClass::GetByTypeAndIndex(whatAmI, index))
+		{
+			if (!PerBuildingProduction::IsCameoVisible(pTechnoType))
+				return ReturnFalse;
+
+			return 0;
+		}
+	}
 
 	if (whatAmI != AbstractType::Special && whatAmI != AbstractType::SuperWeaponType && whatAmI != AbstractType::Super)
 		return 0;
-
-	GET_STACK(const int, index, STACK_OFFSET(0x14, 0x8));
 
 	if (SWSidebarClass::Instance.AddButton(index))
 	{

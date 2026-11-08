@@ -1,5 +1,6 @@
 #include "Body.h"
 #include "SWSidebar/SWSidebarClass.h"
+#include "PerBuildingProduction.h"
 
 #include <Ext/Side/Body.h>
 #include <Misc/MessageColumn.h>
@@ -113,6 +114,7 @@ DEFINE_HOOK(0x6A5082, SidebarClass_InitClear_InitializeNewButtons, 0x5)
 {
 	SWSidebarClass::Instance.InitClear();
 	MessageColumnClass::Instance.InitClear();
+	PerBuildingProduction::Reset();
 	return 0;
 }
 
