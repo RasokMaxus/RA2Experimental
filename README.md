@@ -27,7 +27,6 @@ It's also a learning project. The code is commented to explain *why* each engine
 | Units come out of the building that built them, with no "Primary" building | 🚧 Milestone 2 |
 | Multiplayer-safe "produce at this building" network event | 🚧 Milestone 2 |
 | AI uses its factories in parallel | 🚧 Milestone 2 |
-| Airfields: planes that need a landing pad stay greyed out until that airfield has a free pad | 🚧 Milestone 2 |
 
 Covered buildings: Construction Yard, Barracks, War Factory, Naval Yard and Airfield.
 
